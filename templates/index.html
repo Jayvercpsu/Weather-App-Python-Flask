@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App - The Pycodes</title>
+    <title>Weather App - ForecastPro</title>
 
     <!-- Bootstrap for responsive layout -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
@@ -12,37 +12,67 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='weather.css') }}" />
 
-  </head>
-  <body>
-    <!-- Main Container -->
-    <div
-      class="container"
-      style="display: flex; justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-      "
-    >
-      <div class="intro-card">
-        <h1 class="app-title">🌍 The Pycodes</h1>
-        <h2 class="app-subtitle">Weather App</h2>
+    <style>
+        /* Centering the page */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+ 
+        .loading-spinner {
+            display: none;
+            margin-left: 10px;
+        }
 
-        <!-- Weather Form -->
-        <form action="/weather" method="post">
-          <label for="city">Enter city name:</label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            placeholder="e.g. San Carlos City, Bacolod City"
-            required
-          />
-          <button type="submit">Get Weather</button>
-        </form>
-      </div>
+ 
+    </style>
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <div class="intro-card">
+            <h1 class="app-title">🌤️ ForecastPro</h1>
+            <h2 class="app-subtitle">Weather App</h2>        
+
+            <!-- Weather Form -->
+            <form id="weather-form" action="/weather" method="post">
+                <label for="city">Enter city name:</label>
+                <input type="text" id="city" name="city" placeholder="e.g. San Carlos City, Bacolod City" required />
+                
+                <button id="submit-btn" type="submit">
+                    🌦️ Get Weather
+                    <span class="loading-spinner spinner-border spinner-border-sm"></span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer j-aldev">
+        <p>&copy; 2025 J-ALDev. All rights reserved.</p>
     </div>
 
     <!-- Bootstrap Script (Optional) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-  </body>
+
+    <!-- JavaScript for Loading Effect -->
+    <script>
+        document.getElementById("weather-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent immediate form submission
+
+            let submitBtn = document.getElementById("submit-btn");
+            let spinner = document.querySelector(".loading-spinner");
+
+            submitBtn.disabled = true; // Disable button
+            spinner.style.display = "inline-block"; // Show loading spinner
+
+            setTimeout(() => {
+                this.submit(); // Submit the form after 1 second
+            }, 1000);
+        });
+    </script>
+</body>
 </html>
