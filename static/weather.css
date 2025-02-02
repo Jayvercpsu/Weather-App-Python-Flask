@@ -1,0 +1,84 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Background Image */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('https://th.bing.com/th/id/OIP.sPTUncsj8IeZcuq7juz30QHaFQ?rs=1&pid=ImgDetMain') no-repeat center center/cover;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 🔹 Glassmorphism Effect */
+.intro-card, .day-card {
+    max-width: 500px;
+    width: 90%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.intro-card:hover, .day-card:hover {
+    transform: scale(1.02);
+}
+
+/* App Title */
+.app-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+/* Input Field */
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]::placeholder {
+    color: #ddd;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #ffcc00;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #ff9900;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .intro-card, .day-card {
+        width: 95%;
+        padding: 20px;
+    }
+}

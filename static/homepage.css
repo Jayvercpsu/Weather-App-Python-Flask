@@ -1,0 +1,142 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Background Image */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('https://th.bing.com/th/id/OIP.sPTUncsj8IeZcuq7juz30QHaFQ?rs=1&pid=ImgDetMain') no-repeat center center/cover;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 🔹 Glassmorphism Effect */
+.intro-card, .day-card, .forecast-card {
+    max-width: 500px;
+    width: 90%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.intro-card:hover, .day-card:hover, .forecast-card:hover {
+    transform: scale(1.02);
+}
+
+/* App Title */
+.app-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+/* Weather Content */
+.weather-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.weather-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.temperature {
+    font-size: 48px;
+    font-weight: 600;
+    color: #ffcc00;
+}
+
+/* Description */
+.description {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+/* Weather Info */
+.weather-info p {
+    font-size: 16px;
+}
+/* Weekly Forecast Card */
+.forecast-card {
+   background: rgba(255, 255, 255, 0.3); /* Increased opacity for a more prominent effect */
+   padding: 25px 20px; /* Increased padding for a more spacious look */
+   border-radius: 15px; /* Slightly more rounded corners */
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Stronger, more subtle shadow */
+   margin: 15px 0; /* Slightly increased margin for spacing */
+   text-align: center;
+   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+   background-color: rgba(255, 255, 255, 0.1); /* Soft white background */
+}
+
+.forecast-card:hover {
+   transform: translateY(-5px); /* Slight lift effect */
+   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+.forecast-card img {
+   width: 60px; /* Slightly larger icon */
+   height: 60px; /* Maintain aspect ratio with width */
+   margin-bottom: 15px; /* Added space between the image and text */
+}
+
+/* Temperature & Text */
+.forecast-card h3, .forecast-card h4, .forecast-card p {
+   font-weight: 500;
+}
+
+.forecast-card h3 {
+   font-size: 20px;
+   margin-bottom: 10px;
+}
+
+.forecast-card h4 {
+   font-size: 24px;
+   color: #ffcc00; /* Highlight temperature */
+   margin-bottom: 5px;
+}
+
+.forecast-card p {
+   font-size: 16px;
+   margin: 5px 0;
+   color: #ddd; /* Slightly muted text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+   .forecast-card {
+       padding: 20px 15px; /* Adjust padding on small screens */
+   }
+
+   .forecast-card img {
+       width: 50px;
+       height: 50px; /* Scale down icon on smaller screens */
+   }
+
+   .forecast-card h4 {
+       font-size: 20px; /* Adjust font size on small screens */
+   }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .intro-card, .day-card {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .forecast-card {
+        padding: 15px;
+    }
+}

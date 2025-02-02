@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather - The Pycodes</title>
+    
+    <!-- Bootstrap for better layout -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='weather.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}">
+</head>
+<body>
+
+    <!-- Current Weather - Day Card -->
+    <div class="container mt-4">  <!-- Back Button -->
+    <div class="container mt-3 mb-3">
+        <a href="/" class="btn btn-primary" style="color: white;">🔙 Back to Home</a> <!-- Link to Home Page -->
+    </div>
+        <div class="day-card">
+              
+            <h2>📅 {{ weather.day }}, {{ weather.date }}</h2>
+            <h1>{{ weather.city }}, {{ weather.country }}</h1>
+            
+            <div class="weather-content">
+                <img src="http://openweathermap.org/img/wn/{{ weather.icon }}.png" alt="Weather Icon" class="weather-icon">
+                <h2 class="temperature">{{ weather.temperature }}°C</h2>
+                <p class="description">{{ weather.description.title() }}</p>
+            </div>
+
+            <div class="weather-info">
+                <p>💨 Wind Speed: <strong>{{ weather.wind_speed }} m/s</strong></p>
+                <p>🔵 Pressure: <strong>{{ weather.pressure }} hPa</strong></p>
+                <p>💧 Humidity: <strong>{{ weather.humidity }}%</strong></p>
+                <p>🌅 Sunrise: <strong>{{ weather.sunrise }}</strong></p>
+                <p>🌇 Sunset: <strong>{{ weather.sunset }}</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Weekly Forecast -->
+    <div class="container mt-5">
+        <h2 class="text-center">📅 Weekly Forecast</h2>
+        <div class="row forecast">
+            {% for forecast_group in weekly_forecast %}
+            <div class="col-md-4 col-sm-6">
+                <div class="forecast-card">
+                    <h3>{{ forecast_group.day }}, {{ forecast_group.date }}</h3>
+                    <img src="http://openweathermap.org/img/wn/{{ forecast_group.icon }}.png" alt="Weather Icon">
+                    <h4 class="temperature">{{ forecast_group.temperature }}°C</h4>
+                    <p class="description">{{ forecast_group.description.title() }}</p>
+                    <p>💧 Humidity: <strong>{{ forecast_group.humidity }}%</strong></p>
+                    <p>💨 Wind Speed: <strong>{{ forecast_group.wind_speed }} m/s</strong></p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Bootstrap Script (Optional) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
